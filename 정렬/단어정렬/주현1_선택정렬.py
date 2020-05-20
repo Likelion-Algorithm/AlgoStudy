@@ -19,4 +19,6 @@ for l in range(0, len(list)) :
             print(list[l]) 
         continue
     print(list[l])
+
+#직관적이지만 실전에서는 시관초과로 사용이 불가
     
