@@ -38,3 +38,5 @@ for l in range(0, len(list)) :
             print(list[l])
         continue
     print(list[l])
+
+'''백준에서 런타임에러 발생'''
