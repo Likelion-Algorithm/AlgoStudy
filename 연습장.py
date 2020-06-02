@@ -21,31 +21,37 @@ if '21 Junkyu' < '21 Dohyun':
 if '21 Junkyu' == '21 Dohyun':
     print('hooo')
 
+arr1 = [1,5,7,2,9,13,10,13,7]
+arr2 = [2,3,9,10,4,8,11,11]
+arr_1_sort={}
+arr_2_sort={}
+def solution(arr1,arr2):
+    for i in arr1:
+        for j in arr1:
+            if i == j:
+                if j not in arr_1_sort.keys():
+                    arr_1_sort[j] = 1
+                elif j in arr_1_sort.keys():
+                    arr_1_sort[j] += 1
+    for i in arr2:
+        for j in arr2:
+            if i == j:
+                if j not in arr_2_sort.keys():
+                    arr_2_sort[j] = 1
+                elif j in arr_2_sort.keys():
+                    arr_2_sort[j] += 1
+            
+
+solution(arr1,arr2)
+if max(arr_1_sort.values())==1 and max(arr_1_sort.values())==1:
+    print(0)
+elif max(arr_1_sort.values()) < max(arr_1_sort.values()):
+    print(2)
+elif max(arr_1_sort.values()) > max(arr_1_sort.values()):
+    print(1)
+# elif max(arr_1_sort.values()) == max(arr_1_sort.values()):
 
 
-a = '21 Junkyu'.split()[0]
-b = a
-print(b)
-
-def quick_sort(data_list):
-    if len(data_list)<=1:
-        return data_list
-    left,right = list(),  list()
-    pivot = data_list[0]
-    for index in range(1,len(data_list)):
-        if int(pivot.split()[0]) > int(data_list[index].split()[0]):
-            left.append(data_list[index])
-        else:
-            right.append(data_list[index])
-    return quick_sort(left) + [pivot] + quick_sort(right)
-
-
-
-import sys
-num_input = int(sys.stdin.readline())
-member_list = list()
-for i in range(num_input):
-    member_list.append(sys.stdin.readline().strip())
-
-for i in quick_sort(member_list):
-    print(i)
+print(arr_1_sort)
+print(arr_2_sort)
+print(max(arr_1_sort))
