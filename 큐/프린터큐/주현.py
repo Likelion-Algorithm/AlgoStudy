@@ -7,25 +7,25 @@ class PrintQueue:
         
 
     def getOrder(self):
-        order=1
-        while(self.importance[0] != self.importance[self.docLoc]):
-            for i in range(0, len(self.importance)):
-                if(self.importance[0]<self.importance[i]):
-                    self.enQueue(self.deQueue())
-        
-            self.deQueue()
-            order += 1
+        order=0
+        front = 0
+        rear = len(self.importance)-1
+        while(self.importance[self.docLoc] in self.importance):
+            for i in range(front, rear):
+                if(self.importance[front]<self.importance[i]):
+                    self.enQueue(self.deQueue(front,rear),front,rear)
+                else:
+                    self.deQueue(front,rear)
+                    order += 1
         return order
 
-    def deQueue(self):
-        if self.importance[self.docLoc]!=self.importance[0]:
-            self.docLoc-=1
+    def deQueue(self,front,rear):
+        front += 1
         return self.importance.pop(0)
-        
-    def enQueue(self,data):
+
+    def enQueue(self,data,front,rear):
+        rear += 1
         self.importance.append(data)
-        if data==self.importance[self.docLoc]:
-            self.docLoc=len(self.importance)-1
 
     
 testcase = int(input())
@@ -33,7 +33,7 @@ classLi = []
 for i in range(0,testcase):
     docQty, docLoc = map(int, input().split())
     importance = list(map(int, input().split()))
-    printqueue = PrintQueue(docQty,docLoc,importance)
-    classLi.append(printqueue)
+    classLi.append(PrintQueue(docQty,docLoc,importance))
+
 for j in range(0,testcase):
     print(classLi[j].getOrder())
