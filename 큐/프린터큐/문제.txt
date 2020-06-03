@@ -1,1 +1,4 @@
 https://www.acmicpc.net/problem/1966
+
+주현: 이게 큐랑 뭔상관이여 쉬벌
+이라고 썼는데 큐문제였네 쉬벌
