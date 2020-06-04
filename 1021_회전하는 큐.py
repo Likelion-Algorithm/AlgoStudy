@@ -21,12 +21,6 @@ while delete_list:
         del num_list[-1]
         move_index+=1
 
-
+# 움직인 횟수 출력
 print(move_index)
     
-# # num_list = [[1, 0], [4, 2], [6, 0]]
-# # weight_list= [[5], [1, 2, 3, 4], [1, 1, 9, 1, 1, 1]]
-# num_list,weight_list  = list(),list()
-# for i in range(num_input):
-#     num_list.append(list(map(int,sys.stdin.readline().strip().split())))
-#     weight_list.append(list(map(int,sys.stdin.readline().strip().split())))
