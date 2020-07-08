@@ -31,10 +31,10 @@ def merge(a,b,list):
             i+=1
     list[a:b+1]=templist[:]
 def getMost(nlist):
-    most = Counter(nlist)
-    most = most.most_common()
-    if(len(most)>=2):
-        if(most[0][1]==most[1][1]):
+    most = Counter(nlist)               #value:빈도 구조의 dict를 만드는 클래스 Counter
+    most = most.most_common()           #딕셔너리를 리스트-튜플형태로 정렬해 반환하는 most_common
+    if(len(most)>=2):                   #여러개일 때 두 번 째 작은 값을 선택하도록 조건
+        if(most[0][1]==most[1][1]): 
             return most[1][0]
     return most[0][0]
 num = int(sys.stdin.readline())
