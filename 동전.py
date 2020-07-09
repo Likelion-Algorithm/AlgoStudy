@@ -12,15 +12,15 @@ for i in range(coin_num):
         coin_list.append(temp)
 
 count = 0
-print(coin_list)
 
-for i in range()
+
+
 while coin_amount >0:
     index = coin_list.pop()
     if coin_amount >= index :
-        while coin_amount >= index:
-            coin_amount -= index
-            count +=1
+        result = coin_amount // index
+        coin_amount -= result * index
+        count +=result
 
 
 print(count)
