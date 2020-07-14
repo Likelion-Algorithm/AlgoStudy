@@ -8,10 +8,11 @@ answerList = list()
 for i in range(k+1):
     answerList.append(0)
 answerList[0]=1
-for i in range(1,len(valueList)):
-    for j in range(1,k+1):
+for i in range(1,len(valueList)):      #동전의 가치 탐색(1번째 동전만, 1,2번째 동전만, 1,2,3번째....)                                     
+    for j in range(1,k+1):             #문제의 크기 탐색
         if j>=valueList[i]:
-            answerList[j]= answerList[j-valueList[i]] + answerList[j]
+            answerList[j]= answerList[j-valueList[i]] + answerList[j]  
+            #점화식-> 해당 동전 가치의 경우 수 = (문제의 크기-동전의 가치)의 경우 수 + 이전 동전 가치의 경우 수
     
 print(answerList[-1])
 

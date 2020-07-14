@@ -19,4 +19,6 @@ for i in range(1,len(valueList)):
     
 print(answerList[-1][-1])
 
+#백준 시간초과 코드
+
         
