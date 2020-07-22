@@ -96,4 +96,4 @@ for i in range(len(num_list)):
 
 
 c = [1,2,3,4,5,6]
-print(c[-6 ])
+print(c[-7])
