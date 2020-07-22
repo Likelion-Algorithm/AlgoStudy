@@ -23,7 +23,7 @@ while search_finished:
         if temp_pivot > max(start_list):
             print(count)
             search_finished = False
-        else:
+        else:   
             compare_list = []
             for i in range(len(start_list)):
                 if start_list[i] >=temp_pivot:

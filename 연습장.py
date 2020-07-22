@@ -93,3 +93,7 @@ def function(num_list, weight_list):
         
 for i in range(len(num_list)):
     function(num_list[i],weight_list[i])
+
+
+c = [1,2,3,4,5,6]
+print(c[-6 ])
