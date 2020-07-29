@@ -67,33 +67,56 @@ print(len(a)//2)
 #     num_list.append(list(map(int,sys.stdin.readline().strip().split())))
 #     weight_list.append(list(map(int,sys.stdin.readline().strip().split())))
     
-num_list = [[1, 0], [4, 2], [6, 0]]
-weight_list= [[5], [1, 2, 3, 4], [1, 1, 9, 1, 1, 1]]
+# num_list = [[1, 0], [4, 2], [6, 0]]
+# weight_list= [[5], [1, 2, 3, 4], [1, 1, 9, 1, 1, 1]]
 
-def function(num_list, weight_list):
+# def function(num_list, weight_list):
     
-    print_index = 1
-    num_list_index = num_list[1]
-    while weight_list:
-        print(weight_list,num_list,num_list_index)
-        if max(weight_list) == weight_list[0]:
-            if num_list_index == 0:
-                print(print_index)
-                break
-            del weight_list[0]
-            print_index +=1
-            num_list_index-=1
-        if max(weight_list) > weight_list[0]:
-            weight_list.append(weight_list[0])
-            del weight_list[0]
-            if num_list_index == 0:
-                num_list_index = len(weight_list)-1
-            else:
-                num_list_index -=1
+#     print_index = 1
+#     num_list_index = num_list[1]
+#     while weight_list:
+#         print(weight_list,num_list,num_list_index)
+#         if max(weight_list) == weight_list[0]:
+#             if num_list_index == 0:
+#                 print(print_index)
+#                 break
+#             del weight_list[0]
+#             print_index +=1
+#             num_list_index-=1
+#         if max(weight_list) > weight_list[0]:
+#             weight_list.append(weight_list[0])
+#             del weight_list[0]
+#             if num_list_index == 0:
+#                 num_list_index = len(weight_list)-1
+#             else:
+#                 num_list_index -=1
         
-for i in range(len(num_list)):
-    function(num_list[i],weight_list[i])
+# for i in range(len(num_list)):
+#     function(num_list[i],weight_list[i])
 
 
-c = [1,2,3,4,5,6]
-print(c[-7])
+# c = [1,2,3,4,5,6]
+# print(c[-7])
+import sys
+from _collections import defaultdict
+
+N = int(input())
+M = int(input())
+connected_computer = [list(map(int, sys.stdin.readline().split() ))for _ in range(M)]
+#이차원리스트로 받음
+
+marked = dict()
+marked = defaultdict(str) #딕셔너리 예외처리, 없는 키값을 찾아도 오류가 뜨지 않도록
+print(marked)
+def DFS(v):
+    marked.update({v : "visited"})
+
+    for i in connected_computer:
+        if v in i: #정점 체크(가지 않은 정점 = 가지 않은 모서리이므로 방문해준다)
+            if marked[i[1]] != "visited":
+                DFS(i[1])
+            elif marked[i[0]] != "visited":
+                DFS(i[0])
+
+DFS(1)
+print(len(marked)-1)

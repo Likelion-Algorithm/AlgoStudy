@@ -13,7 +13,6 @@ for row_index in range(len(all_list)):
 
 temp_count = 0
 def dir_search(temp):
-    
     global temp_count
     temp_count+=1
     if (temp[0]-1,temp[1]) in result_list:
@@ -28,7 +27,6 @@ def dir_search(temp):
     if (temp[0],temp[1]+1) in result_list:
         result_list.remove((temp[0],temp[1]+1))
         dir_search((temp[0],temp[1]+1))
-    
     else:     
         return
 final_list = []
