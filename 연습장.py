@@ -107,7 +107,7 @@ connected_computer = [list(map(int, sys.stdin.readline().split() ))for _ in rang
 
 marked = dict()
 marked = defaultdict(str) #딕셔너리 예외처리, 없는 키값을 찾아도 오류가 뜨지 않도록
-print(marked)
+
 def DFS(v):
     marked.update({v : "visited"})
 
@@ -119,4 +119,3 @@ def DFS(v):
                 DFS(i[0])
 
 DFS(1)
-print(len(marked)-1)
