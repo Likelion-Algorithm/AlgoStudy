@@ -10,7 +10,9 @@ loc = [1,1]
 count = 1
 
 result = []
+# print(all_list)
 def DFS(loc):
+    # print(loc,all_list)
     # print(loc)
     global count
     if loc[0] == num and loc [1] == column:
@@ -22,7 +24,7 @@ def DFS(loc):
         loc[1]  +=1
         count +=1
         DFS(loc)
-        all_list[loc[0]][loc[1]+1] = 1
+        all_list[loc[0]][loc[1]] = 1
         loc[1] -= 1
         count -=1
     if all_list[loc[0]+1][loc[1]] == 1:
@@ -31,7 +33,7 @@ def DFS(loc):
         loc[0]  += 1
         count +=1
         DFS(loc)
-        all_list[loc[0]+1][loc[1]] = 1
+        all_list[loc[0]][loc[1]] = 1
         loc[0] -=  1
         count -=1
     if all_list[loc[0]][loc[1]-1] == 1:
@@ -40,7 +42,7 @@ def DFS(loc):
         loc[1]  -= 1
         count +=1
         DFS(loc)
-        all_list[loc[0]][loc[1]-1] = 1
+        all_list[loc[0]][loc[1]] = 1
         loc[1] +=  1
         count -=1
     if all_list[loc[0]-1][loc[1]] == 1:
@@ -49,8 +51,11 @@ def DFS(loc):
         loc[0]  -= 1
         count +=1
         DFS(loc)
-        all_list[loc[0]-1][loc[1]] = 1
+        all_list[loc[0]][loc[1]] = 1
         loc[0] +=  1
         count -=1
+    else:
+        return
 DFS(loc)
 print(min(result))
+
