@@ -9,9 +9,13 @@ for i in range(num+2):
 loc = [1,1]
 count = 1
 
+
+
+# 여기서부터=는 시간 초과 코드
 result = []
 # print(all_list)
 def DFS(loc):
+    
     # print(loc,all_list)
     # print(loc)
     global count
@@ -36,7 +40,7 @@ def DFS(loc):
         all_list[loc[0]][loc[1]] = 1
         loc[0] -=  1
         count -=1
-    if all_list[loc[0]][loc[1]-1] == 1:
+    elif all_list[loc[0]][loc[1]-1] == 1:
         # print('좌')
         all_list[loc[0]][loc[1]-1] = 0
         loc[1]  -= 1
@@ -45,7 +49,7 @@ def DFS(loc):
         all_list[loc[0]][loc[1]] = 1
         loc[1] +=  1
         count -=1
-    if all_list[loc[0]-1][loc[1]] == 1:
+    elif all_list[loc[0]-1][loc[1]] == 1:
         # print('상')
         all_list[loc[0]-1][loc[1]] = 0
         loc[0]  -= 1
