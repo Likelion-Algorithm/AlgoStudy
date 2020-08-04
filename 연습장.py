@@ -121,5 +121,5 @@ print(len(a)//2)
 # DFS(1)
 
 a = [1,2,3,4]
-a[0] += 1
-print(a)
+b =[0]+ a+ [0]
+print( a,b )

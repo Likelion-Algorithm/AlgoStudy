@@ -1,25 +1,30 @@
 import sys
 
-num, value = map(int, input().split())
+num, value_amount = map(int, input().split())
 stuff = [[0,0]]
-knapsack = [[0 for _ in range(value + 1)] for _ in range(num + 1)]
-print(knapsack)
+sack = [[0 for _ in range(value_amount + 1)] for _ in range(num + 1)]
 
 
-for _ in range(num):
-    stuff.append(list(map(int,input().split())))
-print(stuff)
+
+# for _ in range(num):
+#     stuff.append(list(map(int,input().split())))
+# print(stuff)
 
 for i in range(1,num+1):
-    for j in range(1,value+1):
-        print(knapsack)
-        weight = stuff[i][0]
-        value_1 = stuff[i][1]
-        if j < weight:
-            knapsack[i][j] = knapsack[i-1][j]
+    weight, value_1 = list(map(int,sys.stdin.readline().split()))
+    for j in range(1,value_amount+1):
+        print(sack, weight, value_1)
+        # weight = stuff[i][0]
+        # value_1 = stuff[i][1]
+        if j >= weight:
+            sack[i][j] = max(value_1 + sack[i-1][j-weight], sack[i-1][j])
         else:
-            knapsack[i][j] = max(value_1 + knapsack[i-1][j-weight], knapsack[i-1][j])
-print(knapsack[num][value])
+            sack[i][j] = sack[i-1][j]
+        # if j < weight:
+        #     sack[i][j] = sack[i-1][j]
+        # else:
+        #     sack[i][j] = max(value_1 + sack[i-1][j-weight], sack[i-1][j])
+print(sack[num][value_amount])
 # import sys 
 # num,amount = list(map(int,sys.stdin.readline().split()))
 
