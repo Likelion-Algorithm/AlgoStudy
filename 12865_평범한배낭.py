@@ -1,6 +1,30 @@
 import sys
 num,amount = list(map(int,sys.stdin.readline().split()))
 
+result_list = []
+for i in range(num):
+    temp_list = list(map(int,sys.stdin.readline().split()))
+    result_list_ = list(result_list)
+    if i== 0:
+        result_list.append(temp_list)
+        continue
+    else:
+        for j in result_list_:
+            if j == temp_list:
+                continue
+            else:
+                if j[0] + temp_list[0] <= amount:
+                    j[0] += temp_list[0]
+                    j[1] += temp_list[1]
+                else:
+                    if temp_list not in result_list:
+                        result_list.append(temp_list)
+            
+answer = max(result_list, key =lambda x : x[1])[1]
+print(answer)
+
+    
+
 
 
 
