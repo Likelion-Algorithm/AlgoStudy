@@ -120,6 +120,6 @@ print(len(a)//2)
 
 # DFS(1)
 
-a = [1,2,3,4]
-b =[0]+ a+ [0]
-print( a,b )
+a = []
+for i in a:
+    print(a[1])
