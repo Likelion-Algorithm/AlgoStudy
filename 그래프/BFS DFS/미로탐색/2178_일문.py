@@ -25,7 +25,7 @@ while queue:
             if visited[x][y] == 0 and location[x][y] == 1: #방문한 적 없고 갈 수 있는 길인지 체크
                 visited[x][y] = visited[a][b] + 1 #횟수 카운트
                 queue.append((x,y))
-    print(visited, queue)
+
 
 # 7 7
 # 1011111
