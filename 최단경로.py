@@ -1,4 +1,5 @@
 import sys
+sys.setrecursionlimit(1000000)  
 spot, num = list(map(int,sys.stdin.readline().split()))
 source = int(sys.stdin.readline())
 all_dict = {}
@@ -11,29 +12,20 @@ for i in range(num):
     all_dict[start].append([finish,weight])
 # print(all_dict)
 
-# def func(begin):
-#     print(exp_list)
-#     for i in all_dict[begin]:
-#         if i[0] == source:
-#             func(i[0])
-#             continue
-#         if exp_list[i[0]] > 0:
-#             exp_list[i[0]] = min(exp_list[i[0]], i[1]+exp_list[begin])
-#         else:
-#             exp_list[i[0]]=i[1]+exp_list[begin]
-#         func(i[0])  
-
-# func(source)
-for j in range(1,len(exp_list)-1):
-    for i in all_dict[j]:
+def func(begin):
+    # print(exp_list)
+    for i in all_dict[begin]:
         if i[0] == source:
             func(i[0])
             continue
         if exp_list[i[0]] > 0:
-            exp_list[i[0]] = min(exp_list[i[0]], i[1]+exp_list[j])
+            exp_list[i[0]] = min(exp_list[i[0]], i[1]+exp_list[begin])
         else:
-            exp_list[i[0]]=i[1]+exp_list[j]
- 
+            exp_list[i[0]]=i[1]+exp_list[begin]
+        func(i[0])  
+
+func(source)
+
 
 for i in range(1,len(exp_list)):
     if i == 0:
