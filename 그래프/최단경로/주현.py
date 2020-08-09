@@ -1,4 +1,5 @@
 import heapq,sys
+
 V, E = map(int, sys.stdin.readline().strip().split())
 start = int(sys.stdin.readline())
 graph = {i:[] for i in range(1, V+1)}
@@ -25,4 +26,3 @@ for i in range(1,V+1):
         print('INF')
     else:
         print(pathList[i])
-
