@@ -120,6 +120,8 @@ print(len(a)//2)
 
 # DFS(1)
 
-a = []
-for i in a:
-    print(a[1])
+a = [1,2,3]
+while a :
+    hoo = a.pop(0)
+    print(a, hoo)
+    print('여전히 실행')
