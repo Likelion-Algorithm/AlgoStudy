@@ -18,8 +18,7 @@ for k in range(n): #k는 거쳐가는 노드
         for j in range(n):
             if floyd_warshall[i][j] > floyd_warshall[i][k] + floyd_warshall[k][j] and i != j:   # 자신으로 가는 정류장은 없으므로
                 floyd_warshall[i][j] = floyd_warshall[i][k] + floyd_warshall[k][j]
-            # if i == j: # INF를 0으로 바꿔줌
-            #     floyd_warshall[i][j] = 0
+
 
 for i in floyd_warshall:
     for j in i:
