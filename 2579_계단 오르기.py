@@ -1,3 +1,10 @@
+import sys
+num = int(sys.stdin.readline())
+all_list = [0]
+for _ in range(num):
+    all_list.append(int(sys.stdin.readline()))
+print(all_list)
+
 # import sys
 # num = int(sys.stdin.readline().strip())
 # score_list = [0]
@@ -7,7 +14,7 @@
 # answer = [0, score_list[1]]    
 # print(score_list)
 # for i in range(1,len(score_list)):
-#     print(answer)
+#     print(answer)2
 #     if i == 0 or i ==1 :
 #         continue
 #     if i ==2 :
@@ -19,16 +26,6 @@
 #             answer.append(score_list[i]+answer[i-1])
 # print(answer)
             
-        
-def ssibal(user):
-    number_1 = 3
-    number_2 = 4
-    a = f'{user}가 {number_1 + number_2 }개를 주문중입니다.'
-    return a
-jeon = ssibal('전제ㅐ현')
-kang = ssibal("강경욱")
-print(jeon)
-print(kang)
 
 
 
