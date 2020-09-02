@@ -6,6 +6,7 @@ x_list = list(X)
 y_list = list(Y)
 
 total_list = [[0]*len(y_list) for _ in range(len(x_list))]
+# [0]인 줄로 하나 감싸주기
 
 for i in range(len(x_list)):
     for j in range(len(y_list)):
@@ -14,5 +15,5 @@ for i in range(len(x_list)):
                 total_list[i][j] = total_list[i-1][j-1] + 1
             else:
                 total_list[i][j] = max(total_list[i-1][j], total_list[i][j-1])
-print(total_list)
+
 print(total_list[len(x_list)-1][len(y_list)-1]+ 1)
