@@ -45,6 +45,7 @@ import sys
 # 그렇지 않으면, (1)현재 물건을 넣어준 후, 남은 무게를 채울 수 있는 최댓값을 더해준다
 # (2) 다른 물건들로 채워준다
 # (1) 과 (2) 중 더 큰 값을 knapsack에 저장
+![12](https://user-images.githubusercontent.com/59404684/91967638-71298580-ed4e-11ea-8938-4fd89154550f.PNG)
 
 n, k = map(int, sys.stdin.readline().split())
 stuff =[[0, 0]]
