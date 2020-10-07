@@ -12,4 +12,4 @@ def solution(phone_book):
                     answer = False
                     return answer 
     answer = True
-    return answer
+    return answer 
