@@ -1,4 +1,4 @@
-# 테스트 2, 15번 통과 못함
+# DONE
 def solution(genres, plays):
     answer = []
     raw = list(zip(genres, plays))
@@ -11,5 +11,9 @@ def solution(genres, plays):
         temp = list(filter(lambda x: x[0] == genre,
                            sorted(raw, reverse=True)))[:2]
         for song in temp:
-            answer.append(raw.index(song))
+            index = raw.index(song)
+            if index in answer:
+                answer.append(raw.index(song, index+1))
+            else:
+                answer.append(index)
     return answer
