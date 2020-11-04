@@ -1,38 +1,23 @@
 def solution(n, lost, reserve):
-    check = [1]*n
-    check.insert(0, 0)
-    check.insert(n+1, 0)
+    answer = 0
+    students = n -len(lost)
+    hoo = int(len(lost))
+    count = 0
+    temp_lost= list(lost)
+    for i in temp_lost:
+        if i in reserve:
+            lost.remove(i)
+            reserve.remove(i)
+            students+=1
+    while count !=hoo and lost:
+        temp = lost.pop()
 
-    cnt = 0
-
-    for i in lost:
-        check[i] = 0
-    
-    for i in reserve:
-        if check[i] == 1:
-            check[i] = 2
-        else:
-            check[i] = 1
-
-    for i in range(1, n+1):
-        if check[i] > 0:
-            cnt += 1
-        else:
-            if check[i-1] == 2:
-                check[i-1] -= 1
-                check[i] += 1
-                cnt += 1
-            elif check[i+1] == 2:
-                check[i+1] -= 1
-                check[i] += 1
-                cnt += 1
-
-    return cnt
-
-print(solution(3,[3],[1]))
-
-#통과
-
-
-
-
+        if temp+1 in reserve:
+            students+=1
+            reserve.remove(temp+1)
+            count+=1
+        elif temp-1 in reserve:
+            students+=1
+            reserve.remove(temp-1)
+            count +=1
+    return students
