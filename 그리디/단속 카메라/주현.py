@@ -14,6 +14,7 @@ def solution(routes):
         else:
             answer+=1
             loc = []
+<<<<<<< HEAD
     return answer
     
 '''그리디 문제에서 어느 부분을 그리디하게 뽑을 것인지 다양하게 생각해야 한다.
@@ -22,3 +23,6 @@ def solution(routes):
    각 routes의 첫 원소, 즉 routes의 시작점을 기준으로 그리디하게 뽑으면 쉽게 해결할 수 있다.'''
 
 print(solution([[-20,15], [-14,-5], [-18,-13], [-5,-3]]))
+=======
+    return answer
+>>>>>>> f8ecbfbb71dce70d51645c3296da1d1fecdc9f95

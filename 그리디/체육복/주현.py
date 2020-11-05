@@ -16,7 +16,11 @@ def solution(n, lost, reserve):
         elif i+1 in lost:
             lost.remove(i+1)
     answer = n-len(lost)
+<<<<<<< HEAD
     return answer
 
 
 print(solution(3,[3],[1]))
+=======
+    return answer
+>>>>>>> f8ecbfbb71dce70d51645c3296da1d1fecdc9f95
