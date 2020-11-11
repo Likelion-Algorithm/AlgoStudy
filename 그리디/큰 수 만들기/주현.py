@@ -6,16 +6,15 @@ def solution(number, k):
     number = deque(number)
     while k!=0 and length!=k:
         n = 0
-        for i in range(k+1):
-            if number[i]==9:
+        for i in range(k+1):    #n= number.index(max(number[0:k+1]))
+            if number[i]==9:    #무작정 max보다는 9일때 빠르게 끝내는게 속도에 도움이됨
                 n=i
                 break
             elif number[i]>number[n]:
                 n=i
-        #n= number.index(max(number[0:k+1]))
-        #number=number[n:]
-        for i in range(n):
-            number.popleft()
+
+        for i in range(n):      #number=number[n:]
+            number.popleft()    #O(1)로O(n)인리스트 복사보다 빠름
             length-=1
         answer+=str(number.popleft())
         length-=1
@@ -26,3 +25,5 @@ def solution(number, k):
         for i in number:
             answer+=str(i)
     return answer
+
+print(solution('21',1))

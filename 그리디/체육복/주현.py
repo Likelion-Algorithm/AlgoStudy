@@ -17,3 +17,6 @@ def solution(n, lost, reserve):
             lost.remove(i+1)
     answer = n-len(lost)
     return answer
+
+
+print(solution(3,[3],[1]))
