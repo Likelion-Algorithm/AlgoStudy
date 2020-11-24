@@ -1,5 +1,3 @@
-from collections import deque
-
 def solution(n, results):
     answer = 0
     W, L= [set() for _ in range(n+1)], [set() for _ in range(n+1)]
