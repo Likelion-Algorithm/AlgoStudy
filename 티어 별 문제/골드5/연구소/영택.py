@@ -12,6 +12,7 @@ EMPTY = 0
 WALL = 1
 VIRUS = 2
 
+# 입력
 g = [[0]*m for _ in range(n)]
 
 for y in range(n):
@@ -24,7 +25,7 @@ for y in range(n):
         if g[y][x] == VIRUS:
             virus_list.append([y, x])
 
-
+# bfs 탐색
 def bfs(ng):
     q = collections.deque([])
     visited = [[False]*m for _ in range(n)]
@@ -54,7 +55,7 @@ def bfs(ng):
     if max_num < cnt:
         max_num = cnt
 
-
+# 벽 세우기
 for i in range(len(empty_list)):
     for j in range(i):
         for k in range(j):
