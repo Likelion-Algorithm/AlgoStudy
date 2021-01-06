@@ -12,7 +12,7 @@ EMPTY = 0
 WALL = 1
 VIRUS = 2
 
-# 입력
+# 입력, 빈 칸과 바이러스의 좌표를 기록한다.
 g = [[0]*m for _ in range(n)]
 
 for y in range(n):
@@ -21,14 +21,13 @@ for y in range(n):
     for x in range(m):
         g[y][x] = raw[x]
         if g[y][x] == EMPTY:
-            empty_list.append([y, x]) # empty_list.append(10*y + x)도 가능
+            empty_list.append([y, x])
         if g[y][x] == VIRUS:
             virus_list.append([y, x])
 
 # bfs 탐색
 def bfs(ng):
     q = collections.deque([])
-    visited = [[False]*m for _ in range(n)]
     cnt = 0
     global max_num
 
@@ -44,10 +43,9 @@ def bfs(ng):
 
             if ny < 0 or ny >= n or nx < 0 or nx >= m:
                 continue
-            if ng[ny][nx] == EMPTY and visited[ny][nx] == False:
+            if ng[ny][nx] == EMPTY:
                 q.append([ny, nx])
                 ng[ny][nx] = VIRUS
-                visited[ny][nx] = True
     
     for i in range(n):
         cnt += ng[i].count(EMPTY)
