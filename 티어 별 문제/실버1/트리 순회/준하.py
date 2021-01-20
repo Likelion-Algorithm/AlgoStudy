@@ -1,35 +1,47 @@
-# https://www.acmicpc.net/problem/11403
+# https://www.acmicpc.net/problem/1991
 
-from collections import deque
+def preorder(node):
+    global G, result
+    if node == '.':
+        return
+    result.append(node)
+    preorder(G[node][0])
+    preorder(G[node][1])
 
 
-def answer(i, j):
-    global n
-    visited = [0 for _ in range(n + 1)]
-    q = deque()
-    q.extend(G[i])
-    while q:
-        x = q.popleft()
-        if x == j:
-            return 1
-        for edge in G[x]:
-            if not visited[edge]:
-                visited[edge] = True
-                q.append(edge)
+def inorder(node):
+    global G, result
+    if node == '.':
+        return
+    inorder(G[node][0])
+    result.append(node)
+    inorder(G[node][1])
 
+
+def postorder(node):
+    global G, result
+    if node == '.':
+        return
+    postorder(G[node][0])
+    postorder(G[node][1])
+    result.append(node)
 
 import sys
-
 input = sys.stdin.readline
 n = int(input())
-G = {i: [] for i in range(1, n + 1)}
-for i in range(1, n + 1):
-    temp = list(map(int, input().split()))
-    G[i] = [x for x in range(1, len(temp) + 1) if temp[x - 1]]
+G = {}
+for i in range(n):
+    parent, left, right = input().split()
+    G[parent] = [left, right]
 
-ans = [[0 for _ in range(n)] for _ in range(n)]
-for i in range(1, n + 1):
-    for j in range(1, n + 1):
-        result = answer(i, j)
-        ans[i - 1][j - 1] = result if result else 0
-    print(" ".join(map(str, ans[i - 1])))
+result = []
+preorder('A')
+print(*result, sep='')
+
+result.clear()
+inorder('A')
+print(*result, sep='')
+
+result.clear()
+postorder('A')
+print(*result, sep='')
