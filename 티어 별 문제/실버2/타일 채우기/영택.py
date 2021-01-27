@@ -12,4 +12,3 @@ f = [0 for _ in range(31)]
 g = f[:]
 f[0], g[1] = 1, 1
 print(solve(n))
-
