@@ -39,3 +39,5 @@ field[y][x] = 2
 answer+=1
 clean(x, y, d, 0)
 print(answer)
+
+#문제의 조건을 정확히 읽어볼 것(북->동->남->서, 필드 내에도 벽이 있음 등) 
